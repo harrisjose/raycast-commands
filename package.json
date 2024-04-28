@@ -6,8 +6,8 @@
   "author": "Harris",
   "license": "ISC",
   "dependencies": {
-    "@raycast/api": "^1.72.1",
-    "@raycast/utils": "^1.14.1",
-    "ky": "^1.2.4"
+    "dotenv": "^16.4.5",
+    "ky": "^1.2.4",
+    "run-applescript": "^7.0.0"
   }
 }

@@ -2,32 +2,32 @@
 
 // Required parameters:
 // @raycast.schemaVersion 1
-// @raycast.title Add note 
+// @raycast.title Save to notes
 // @raycast.mode silent
 
 // Optional parameters:
 // @raycast.icon 💾
 // @raycast.packageName Personal
-// @raycast.argument1 { "type": "text", "placeholder": "URL" }
-// @raycast.argument2 { "type": "text", "placeholder": "Excerpt"}
 
 // Documentation:
-// @raycast.description Adds custom url and text to notes in harrisjose.dev
+// @raycast.description Adds the current selection and url to notes in harrisjose.dev
 // @raycast.author Harris
 // @raycast.authorURL https://github.com/harrisjose
 // 
 import 'dotenv/config';
 import ky from 'ky';
+import { getActiveTab } from './lib/get-active-tab.js';
 
 const API_URL = process.env.API_URL;
 const RAYCAST_SCRIPT_TOKEN = process.env.RAYCAST_SCRIPT_TOKEN;
 
 try {
-  const [url, excerpt] = process.argv.slice(2)
+  const info = await getActiveTab();
+  console.log(info);
   const response = await ky.post(`${API_URL}/${RAYCAST_SCRIPT_TOKEN}`, {
     json: {
-      url: url,
-      excerpt: excerpt,
+      url: info.url,
+      excerpt: info.excerpt,
     }
   }).json();
   console.log(response.message);
