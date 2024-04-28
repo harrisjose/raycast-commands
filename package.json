@@ -1,0 +1,13 @@
+{
+  "name": "raycast-commands",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "author": "Harris",
+  "license": "ISC",
+  "dependencies": {
+    "@raycast/api": "^1.72.1",
+    "@raycast/utils": "^1.14.1",
+    "ky": "^1.2.4"
+  }
+}
